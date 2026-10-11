@@ -593,7 +593,7 @@ json_parse_document :: (text: string) -> ok: bool, JSON_Document {
     }
 
     error: yyjson_read_err;
-    result.document = yyjson_read_opts(text.data, cast(u64) text.count, JSON_READ_FLAGS, context_yyjson_allocator(context), *error);
+    result.document = yyjson_read_opts(text.data, cast(u64) text.count, JSON_READ_FLAGS, context_yyjson_allocator(*context), *error);
     if !result.document {
         log_error("Invalid JSON at byte %: %", error.pos, to_string(error.msg));
         return false, result;
