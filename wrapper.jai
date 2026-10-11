@@ -362,7 +362,7 @@ json_write :: (value: $T, pretty := false) -> bool, string {
 
     defer free(text);
 
-    return copy_string(to_string(text, cast(s64) length));
+    return true, copy_string(to_string(text, cast(s64) length));
 }
 
 json_value_to_mutable :: (document: *yyjson_mut_doc, value: *$T) -> *yyjson_mut_val {
