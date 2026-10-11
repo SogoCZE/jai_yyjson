@@ -7,7 +7,8 @@ json_raw_is_null :: (raw: Raw_JSON_Value) -> bool {
 }
 
 json_raw_string :: (text: string) -> Raw_JSON_Value {
-    return {json_write(text)};
+    _, json_str := json_write(text);
+    return {json_str};
 }
 
 JSON_READ_FLAGS :: YYJSON_READ_ALLOW_INVALID_UNICODE;
